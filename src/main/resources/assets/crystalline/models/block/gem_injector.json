@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "top": "awsomemod:block/iron_machine_top",
-    "front": "awsomemod:block/gem_injector",
-    "side": "awsomemod:block/iron_machine_side"
+    "top": "crystalline:block/iron_machine_top",
+    "front": "crystalline:block/gem_injector",
+    "side": "crystalline:block/iron_machine_side"
   }
 }

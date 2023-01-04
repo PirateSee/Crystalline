@@ -2,7 +2,7 @@ package com.piratesee.crystalline.datagen.server;
 
 import java.util.function.Consumer;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.init.BlockInit;
 import com.piratesee.crystalline.init.ItemInit;
 
@@ -25,7 +25,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		.define('a', BlockInit.PROTOTYPE.get().asItem())
 		.pattern("aa").pattern("aa")
 		.unlockedBy("has_" + ForgeRegistries.BLOCKS.getKey(BlockInit.PROTOTYPE.get()).getPath(), has(BlockInit.PROTOTYPE.get().asItem()))
-		.save(consumer, new ResourceLocation(AwsomeMod.MOD_ID, "yes"));
+		.save(consumer, new ResourceLocation(Crystalline.MOD_ID, "yes"));
 	}
 	
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "awsomemod:block/prototype"
+      "model": "crystalline:block/prototype"
     }
   }
 }

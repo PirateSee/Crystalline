@@ -3,7 +3,7 @@ package com.piratesee.crystalline.init;
 import java.util.function.Function;
 
 import com.google.common.base.Supplier;
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.block.custom.GemInfusingStationBlock;
 import com.piratesee.crystalline.block.custom.GemInjectorBlock;
 
@@ -19,7 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class BlockInit {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, AwsomeMod.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Crystalline.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = ItemInit.ITEMS;
 	
 	public static final RegistryObject<Block> PROTOTYPE = register("prototype", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)),

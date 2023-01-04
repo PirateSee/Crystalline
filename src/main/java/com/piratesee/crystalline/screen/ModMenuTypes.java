@@ -1,6 +1,6 @@
 package com.piratesee.crystalline.screen;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModMenuTypes{
 	public static final DeferredRegister<MenuType<?>> MENUS = 
-			DeferredRegister.create(ForgeRegistries.MENU_TYPES, AwsomeMod.MOD_ID);
+			DeferredRegister.create(ForgeRegistries.MENU_TYPES, Crystalline.MOD_ID);
 	
     public static final RegistryObject<MenuType<GemInfusingStationMenu>> GEM_INFUSING_STATION_MENU =
             registerMenuType(GemInfusingStationMenu::new, "gem_infusing_station_menu");

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "a": {
-      "item": "awsomemod:prototype"
+      "item": "crystalline:prototype"
     }
   },
   "pattern": [
@@ -10,6 +10,6 @@
     "aa"
   ],
   "result": {
-    "item": "awsomemod:the_thing"
+    "item": "crystalline:the_thing"
   }
 }

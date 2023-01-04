@@ -1,6 +1,6 @@
 package com.piratesee.crystalline.intergrations;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.init.BlockInit;
 import com.piratesee.crystalline.recipe.GemInfusingStationRecipe;
 
@@ -17,9 +17,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class GemInfusingStationRecipeCategory implements IRecipeCategory<GemInfusingStationRecipe> {
-    public final static ResourceLocation UID = new ResourceLocation(AwsomeMod.MOD_ID, "gem_infusing");
+    public final static ResourceLocation UID = new ResourceLocation(Crystalline.MOD_ID, "gem_infusing");
     public final static ResourceLocation TEXTURE =
-            new ResourceLocation(AwsomeMod.MOD_ID, "textures/gui/gem_infusing_station_gui.png");
+            new ResourceLocation(Crystalline.MOD_ID, "textures/gui/gem_infusing_station_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;

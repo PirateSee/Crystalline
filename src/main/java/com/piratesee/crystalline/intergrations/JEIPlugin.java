@@ -3,7 +3,7 @@ package com.piratesee.crystalline.intergrations;
 import java.util.List;
 import java.util.Objects;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.recipe.GemInfusingStationRecipe;
 
 import mezz.jei.api.IModPlugin;
@@ -22,7 +22,7 @@ public class JEIPlugin implements IModPlugin {
 	
 	@Override
 	public ResourceLocation getPluginUid() {
-		return new ResourceLocation(AwsomeMod.MOD_ID, "jei_plugin");
+		return new ResourceLocation(Crystalline.MOD_ID, "jei_plugin");
 	}
 
     @Override

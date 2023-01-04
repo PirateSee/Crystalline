@@ -1,6 +1,6 @@
 package com.piratesee.crystalline.datagen.server;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.init.ItemInit;
 
 import net.minecraft.data.DataGenerator;
@@ -12,7 +12,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class ModItemTagsProvider extends ItemTagsProvider {
 
 	public ModItemTagsProvider(DataGenerator generator, BlockTagsProvider blocks, ExistingFileHelper helper) {
-		super(generator, blocks, AwsomeMod.MOD_ID, helper);
+		super(generator, blocks, Crystalline.MOD_ID, helper);
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package com.piratesee.crystalline.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -16,7 +16,7 @@ public class GemInfusingStationScreen extends AbstractContainerScreen<GemInfusin
 	}
 
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(AwsomeMod.MOD_ID,"textures/gui/gem_infusing_station_gui.png");
+            new ResourceLocation(Crystalline.MOD_ID,"textures/gui/gem_infusing_station_gui.png");
 	
     @Override
     protected void init() {

@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -85,7 +85,7 @@ public class GemInfusingStationRecipe implements Recipe<SimpleContainer> {
     public static class Serializer implements RecipeSerializer<GemInfusingStationRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(AwsomeMod.MOD_ID, "gem_infusing");
+                new ResourceLocation(Crystalline.MOD_ID, "gem_infusing");
 
         @Override
         public GemInfusingStationRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

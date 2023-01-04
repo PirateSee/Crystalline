@@ -1,6 +1,6 @@
 package com.piratesee.crystalline.datagen;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.datagen.client.ModBlockStateProvider;
 import com.piratesee.crystalline.datagen.client.ModItemModelProvider;
 import com.piratesee.crystalline.datagen.server.ModBlockTagsProvider;
@@ -14,7 +14,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = AwsomeMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Crystalline.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGeneration {
 	private DataGeneration() {}
 	

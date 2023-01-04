@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "awsomemod:prototype"
+              "crystalline:prototype"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "awsomemod:yes"
+        "recipe": "crystalline:yes"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "awsomemod:yes"
+      "crystalline:yes"
     ]
   }
 }

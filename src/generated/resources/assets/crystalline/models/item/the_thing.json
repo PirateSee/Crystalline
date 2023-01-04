@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "awsomemod:item/the_thing"
+    "layer0": "crystalline:item/the_thing"
   }
 }

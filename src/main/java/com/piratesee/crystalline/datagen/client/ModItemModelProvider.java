@@ -1,6 +1,6 @@
 package com.piratesee.crystalline.datagen.client;
 
-import com.piratesee.crystalline.AwsomeMod;
+import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.init.BlockInit;
 import com.piratesee.crystalline.init.ItemInit;
 
@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItemModelProvider extends ItemModelProvider {
 	public ModItemModelProvider(DataGenerator generator, ExistingFileHelper helper) {
-		super(generator, AwsomeMod.MOD_ID, helper);
+		super(generator, Crystalline.MOD_ID, helper);
 		// TODO Auto-generated constructor stub
 	}
 
