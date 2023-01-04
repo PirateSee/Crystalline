@@ -1,0 +1,11 @@
+{
+  "type": "awsomemod:gem_infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "output": {
+    "item": "awsomemod:the_thing"
+  }
+}
