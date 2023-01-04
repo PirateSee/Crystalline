@@ -17,6 +17,9 @@ public class ModMenuTypes{
 	
     public static final RegistryObject<MenuType<GemInfusingStationMenu>> GEM_INFUSING_STATION_MENU =
             registerMenuType(GemInfusingStationMenu::new, "gem_infusing_station_menu");
+    
+    public static final RegistryObject<MenuType<GemInjectorMenu>> GEM_INJECTOR_MENU =
+            registerMenuType(GemInjectorMenu::new, "gem_injector_menu");
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,

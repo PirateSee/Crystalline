@@ -1,7 +1,6 @@
 package com.piratesee.crystalline.block.entity;
 
 import com.piratesee.crystalline.Crystalline;
-import com.piratesee.crystalline.datagen.client.ModBlockStateProvider;
 import com.piratesee.crystalline.init.BlockInit;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -19,7 +18,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(GemInfusingStationBlockEntity::new,
                             BlockInit.GEM_INFUSING_STATION.get()).build(null));
 
-
+    public static final RegistryObject<BlockEntityType<GemInjectorBlockEntity>> GEM_INJECTOR =
+            BLOCK_ENTITIES.register("gem_injector", () ->
+                    BlockEntityType.Builder.of(GemInjectorBlockEntity::new,
+                            BlockInit.GEM_INJECTOR.get()).build(null));
+    
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

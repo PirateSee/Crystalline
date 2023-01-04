@@ -1,0 +1,11 @@
+{
+  "type": "crystalline:gem_injecting",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "output": {
+    "item": "crystalline:diamondmetal"
+  }
+}
