@@ -1,4 +1,8 @@
-// 1.19.2	2023-01-04T10:12:54.6314182	Item Models: crystalline
+// 1.19.2	2023-01-04T19:33:00.8626947	Item Models: crystalline
+a0131ad4d72a7a55de0f6e93ed86920b8cdff179 assets/crystalline/models/item/cut_diamondmetal.json
 3d9336ddea7ce9746a2ac031f8036bc3aa39aee1 assets/crystalline/models/item/diamondmetal.json
+7f71d84269766c9f97e2b920b4c21e9b1bcd5b85 assets/crystalline/models/item/diamondmetal_block.json
+3e08d1f0d141121e470064ad62dcc701029f0836 assets/crystalline/models/item/diamondmetal_nugget.json
+061fd9c5e429394361a05d83da42298a7c076b32 assets/crystalline/models/item/diamondmetal_pillar.json
 204355b54cb3008255acbcc84728d7bbbbbf9abb assets/crystalline/models/item/prototype.json
 518707a1f43d4907f32307a9b548ca4563a1af39 assets/crystalline/models/item/the_thing.json

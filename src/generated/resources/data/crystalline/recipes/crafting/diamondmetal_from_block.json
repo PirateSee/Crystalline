@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "crystalline:diamondmetal_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "crystalline:diamondmetal"
+  }
+}

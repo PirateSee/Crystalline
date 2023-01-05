@@ -19,7 +19,7 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class GemInjectorMenu extends AbstractContainerMenu {
 
-	private final GemInjectorBlockEntity blockEntity;
+	public final GemInjectorBlockEntity blockEntity;
 	private final Level level;
 	private final ContainerData data;
 
@@ -42,7 +42,7 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 			this.addSlot(new SlotItemHandler(handler, 1, 62, 58));
 			this.addSlot(new SlotItemHandler(handler, 2, 99, 37));
 		});
-		
+
 		addDataSlots(data);
 	}
 	
@@ -127,5 +127,9 @@ public class GemInjectorMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
+
+	public GemInjectorBlockEntity getBlockEntity() {
+		return this.blockEntity;
+	}
 	
 }

@@ -39,10 +39,15 @@ public class ModItemModelProvider extends ItemModelProvider {
 	protected void registerModels() {
 		//block items
 		simpleBlockItem(BlockInit.PROTOTYPE.get().asItem());
+		simpleBlockItem(BlockInit.DIAMONDMETAL_BLOCK.get().asItem());
+		simpleBlockItem(BlockInit.CUT_DIAMONDMETAL.get().asItem());
+		simpleBlockItem(BlockInit.DIAMONDMETAL_PILLAR.get().asItem());
 		
 		//reg items
 		oneLayerItem(ItemInit.THE_THING.get());
 		oneLayerItem(ItemInit.DIAMONDMETAL.get());
+		oneLayerItem(ItemInit.DIAMONDMETAL_NUGGET.get());
+		
 	}
 
 }

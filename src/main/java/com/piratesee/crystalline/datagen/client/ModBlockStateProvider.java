@@ -16,6 +16,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	@Override
 	protected void registerStatesAndModels() {
 		simpleBlock(BlockInit.PROTOTYPE.get());
+		simpleBlock(BlockInit.DIAMONDMETAL_BLOCK.get());
+		simpleBlock(BlockInit.CUT_DIAMONDMETAL.get());
+		simpleBlock(BlockInit.DIAMONDMETAL_PILLAR.get());
 	}
 	
 }

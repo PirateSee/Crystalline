@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.recipe.GemInfusingStationRecipe;
+import com.piratesee.crystalline.recipe.GemInjectingRecipe;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -19,6 +20,9 @@ import net.minecraft.world.item.crafting.RecipeManager;
 public class JEIPlugin implements IModPlugin {
     public static RecipeType<GemInfusingStationRecipe> INFUSION_TYPE =
             new RecipeType<>(GemInfusingStationRecipeCategory.UID, GemInfusingStationRecipe.class);
+    
+    public static RecipeType<GemInjectingRecipe> INJECTION_TYPE =
+            new RecipeType<>(GemInjectorRecipeCategory.UID, GemInjectingRecipe.class);
 	
 	@Override
 	public ResourceLocation getPluginUid() {
@@ -29,6 +33,9 @@ public class JEIPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new
                 GemInfusingStationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        
+        registration.addRecipeCategories(new
+                GemInjectorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -37,6 +44,9 @@ public class JEIPlugin implements IModPlugin {
 
         List<GemInfusingStationRecipe> recipesInfusing = rm.getAllRecipesFor(GemInfusingStationRecipe.Type.INSTANCE);
         registration.addRecipes(INFUSION_TYPE, recipesInfusing);
+
+        List<GemInjectingRecipe> recipesInjecting = rm.getAllRecipesFor(GemInjectingRecipe.Type.INSTANCE);
+        registration.addRecipes(INJECTION_TYPE, recipesInjecting);
     }
 	
 }

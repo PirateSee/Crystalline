@@ -17,7 +17,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 	@Override
 	protected void addTags() {
-		tag(Tags.Items.INGOTS).add(ItemInit.THE_THING.get());
+		tag(Tags.Items.INGOTS).add(ItemInit.DIAMONDMETAL.get());
 	}
 	
 }

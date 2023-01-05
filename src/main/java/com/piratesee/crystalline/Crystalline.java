@@ -3,6 +3,7 @@ package com.piratesee.crystalline;
 import com.piratesee.crystalline.block.entity.ModBlockEntities;
 import com.piratesee.crystalline.init.BlockInit;
 import com.piratesee.crystalline.init.ItemInit;
+import com.piratesee.crystalline.networking.ModMessages;
 import com.piratesee.crystalline.recipe.ModRecipes;
 import com.piratesee.crystalline.screen.GemInfusingStationScreen;
 import com.piratesee.crystalline.screen.GemInjectorScreen;
@@ -14,6 +15,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("crystalline")
@@ -34,9 +36,17 @@ public class Crystalline {
 		
 		ModRecipes.register(bus);
 		
+		bus.addListener(this::commonSetup);
+		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+        	
+        });
+        ModMessages.register();
+    }
 	
 	@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class ClientModEvents {

@@ -24,7 +24,6 @@ public class GemInfusingStationBlock extends BaseEntityBlock {
 
 	public GemInfusingStationBlock(Properties properties) {
 		super(properties);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -61,7 +60,6 @@ public class GemInfusingStationBlock extends BaseEntityBlock {
     @Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		// TODO Auto-generated method stub
 		return new GemInfusingStationBlockEntity(pos, state);
 	}
 	

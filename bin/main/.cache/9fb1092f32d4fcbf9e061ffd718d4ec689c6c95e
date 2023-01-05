@@ -1,3 +1,11 @@
-// 1.19.2	2023-01-04T10:12:54.63042	Recipes
+// 1.19.2	2023-01-04T19:01:52.8230488	Recipes
+a6f0560a00e488eedfa780e00712b507bf8c5575 data/crystalline/advancements/recipes/misc/crafting/diamondmetal_block.json
+1ecce9acf1ea01f846b63cc6e96268f80d192d77 data/crystalline/advancements/recipes/misc/crafting/diamondmetal_from_block.json
+f8716a8c52286a9ee2536df39ee3eca3a5242adf data/crystalline/advancements/recipes/misc/crafting/diamondmetal_from_nugget.json
+4c8652a0c424cb25063f7006dc65b59611c07f4b data/crystalline/advancements/recipes/misc/crafting/diamondmetal_nugget.json
 f482035edc9b4a6271350a890cf567c493b7d7a4 data/crystalline/advancements/recipes/misc/yes.json
+1ed03f27b092165ab1e50059d7f3491866be4993 data/crystalline/recipes/crafting/diamondmetal_block.json
+c5f3a1d227552d2c87e0cdd29ed19aeefa6ecd28 data/crystalline/recipes/crafting/diamondmetal_from_block.json
+8420359d6a0e4fea846a03f63d0a4dfa9b870c64 data/crystalline/recipes/crafting/diamondmetal_from_nugget.json
+afcba45bc073ff38eb7e18d5c23bdc8d1cd9a41b data/crystalline/recipes/crafting/diamondmetal_nugget.json
 e25da4852e360546753f47f3e0ff9cc07d65560c data/crystalline/recipes/yes.json

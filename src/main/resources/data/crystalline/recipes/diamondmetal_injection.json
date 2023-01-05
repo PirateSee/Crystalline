@@ -2,7 +2,10 @@
   "type": "crystalline:gem_injecting",
   "ingredients": [
     {
-      "item": "minecraft:diamond"
+		"item": "minecraft:diamond"
+    },
+    {
+		"item": "minecraft:iron_ingot"
     }
   ],
   "output": {

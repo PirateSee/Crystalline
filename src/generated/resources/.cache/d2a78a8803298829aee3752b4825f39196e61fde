@@ -1,3 +1,9 @@
-// 1.19.2	2023-01-04T10:12:54.6274279	Block States: crystalline
+// 1.19.2	2023-01-04T19:09:41.8355744	Block States: crystalline
+20cc419f9c131c9299fa988f557ce4f0b73a59c5 assets/crystalline/blockstates/cut_diamondmetal.json
+7a70805ab09e2ac3074aecdbac9ea58361373168 assets/crystalline/blockstates/diamondmetal_block.json
+48f14a8ba904c49d91525f6726322c8470c732b6 assets/crystalline/blockstates/diamondmetal_pillar.json
 14349d3afc38544d8bd6766e33b4acc101778795 assets/crystalline/blockstates/prototype.json
+1149944f3e319649200bff4f855788d69d3d8704 assets/crystalline/models/block/cut_diamondmetal.json
+e30213d08941dfa0c03cfa7dc7899219f3d3b373 assets/crystalline/models/block/diamondmetal_block.json
+d970f5b2c2327a76a8d949d2a6bb9de1af316831 assets/crystalline/models/block/diamondmetal_pillar.json
 170c1d10a37673ff0b1f7f853d6b5c7eebdd2b04 assets/crystalline/models/block/prototype.json

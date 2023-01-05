@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "crystalline:diamondmetal"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "crystalline:diamondmetal_nugget"
+  }
+}

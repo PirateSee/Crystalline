@@ -25,6 +25,18 @@ public class BlockInit {
 	public static final RegistryObject<Block> PROTOTYPE = register("prototype", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 	
+	public static final RegistryObject<Block> DIAMONDMETAL_BLOCK = register("diamondmetal_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).strength(5, 6).requiresCorrectToolForDrops()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	
+	public static final RegistryObject<Block> CUT_DIAMONDMETAL = register("cut_diamondmetal", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).strength(5, 6).requiresCorrectToolForDrops()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	
+	public static final RegistryObject<Block> DIAMONDMETAL_PILLAR = register("diamondmetal_pillar", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).strength(5, 6).requiresCorrectToolForDrops()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	
+	public static final RegistryObject<Block> OSCILLATION_GEN = register("oscillation_gen", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).strength(5, 6).requiresCorrectToolForDrops()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+	
 	public static final RegistryObject<Block> GEM_INFUSING_STATION = register("gem_infusing_station", () -> new GemInfusingStationBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY)),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 	
