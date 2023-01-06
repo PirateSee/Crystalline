@@ -24,12 +24,12 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 	private final ContainerData data;
 
 	public GemInjectorMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
 	}
 	
 	public GemInjectorMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
 		super(ModMenuTypes.GEM_INJECTOR_MENU.get(), id);
-		checkContainerSize(inv, 3);
+		checkContainerSize(inv, 4);
 		blockEntity = (GemInjectorBlockEntity) entity;
 		this.level = inv.player.level;
 		this.data = data;
@@ -41,6 +41,7 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 			this.addSlot(new SlotItemHandler(handler, 0, 62, 16));
 			this.addSlot(new SlotItemHandler(handler, 1, 62, 58));
 			this.addSlot(new SlotItemHandler(handler, 2, 99, 37));
+			this.addSlot(new SlotItemHandler(handler, 3, 135, 13));
 		});
 
 		addDataSlots(data);
@@ -74,7 +75,7 @@ public class GemInjectorMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

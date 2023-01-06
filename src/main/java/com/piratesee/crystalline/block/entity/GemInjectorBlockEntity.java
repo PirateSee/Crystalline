@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.piratesee.crystalline.SocketGems;
 import com.piratesee.crystalline.init.ItemInit;
 import com.piratesee.crystalline.networking.ModMessages;
 import com.piratesee.crystalline.networking.packet.EnergySyncS2CPacket;
@@ -33,6 +34,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	public GemInjectorBlockEntity(BlockPos pos, BlockState state) {
@@ -58,7 +60,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 
             @Override
             public int getCount() {
-                return 2;
+                return 3;
             }
 		};
 	}
@@ -77,7 +79,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	
 	private static final int ENERGY_REQ = 32;
 	
-	private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+	private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
 		@Override
 		protected void onContentsChanged(int slot) {
 			setChanged();
@@ -98,8 +100,6 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
 		return new GemInjectorMenu(id, inventory, this, this.data);
 	}
-	
-	
 	
 	@Override
 	public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
@@ -156,6 +156,11 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 		if(level.isClientSide()) {
 			return;
 		}
+		
+		/*int[] socketStats = SocketGems.socketGemTester(pEntity.itemHandler.getStackInSlot(3));
+		System.out.print(socketStats[0]);
+		System.out.print(socketStats[1]);
+		System.out.println(socketStats[2]);*/
 		
 		if(chargerItem(pEntity, 0)) {
 			pEntity.ENERGY_STORAGE.receiveEnergy(128, false);

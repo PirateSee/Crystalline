@@ -12,7 +12,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
 	public ModBlockTagsProvider(DataGenerator p_126511_, ExistingFileHelper helper) {
 		super(p_126511_, Crystalline.MOD_ID, helper);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
