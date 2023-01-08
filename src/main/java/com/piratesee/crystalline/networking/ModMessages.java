@@ -2,6 +2,7 @@ package com.piratesee.crystalline.networking;
 
 import com.piratesee.crystalline.Crystalline;
 import com.piratesee.crystalline.networking.packet.EnergySyncS2CPacket;
+import com.piratesee.crystalline.networking.packet.ItemStackSyncS2CPacket;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -35,6 +36,11 @@ public class ModMessages {
                 .consumerMainThread(EnergySyncS2CPacket::handle)
                 .add();
         
+        net.messageBuilder(ItemStackSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(ItemStackSyncS2CPacket::new)
+                .encoder(ItemStackSyncS2CPacket::toBytes)
+                .consumerMainThread(ItemStackSyncS2CPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {

@@ -42,6 +42,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		simpleBlockItem(BlockInit.DIAMONDMETAL_BLOCK.get().asItem());
 		simpleBlockItem(BlockInit.CUT_DIAMONDMETAL.get().asItem());
 		simpleBlockItem(BlockInit.DIAMONDMETAL_PILLAR.get().asItem());
+		simpleBlockItem(BlockInit.GEM_INJECTOR.get().asItem());
 		
 		//reg items
 		oneLayerItem(ItemInit.THE_THING.get());

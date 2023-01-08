@@ -16,6 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class SocketGems {
 
+	@SuppressWarnings("unused")
 	public static int[] socketGemTester(ItemStack stack) {
 		
 		int[] placeholder = new int[3];
@@ -27,8 +28,7 @@ public class SocketGems {
 		String itemPath = ForgeRegistries.ITEMS.getKey(stack.getItem()).toString().replace(':', '_');
 		
 		ResourceLocation loc = new ResourceLocation(Crystalline.MOD_ID, "gemStats/" + itemPath + ".json");
-		
-		System.out.println("src/main/resources/data/" + Crystalline.MOD_ID + "/gemStats/" + itemPath + ".json");
+		System.out.println(loc.toString());
 		
 		System.out.println(reader);
 		

@@ -9,6 +9,7 @@ import com.piratesee.crystalline.SocketGems;
 import com.piratesee.crystalline.init.ItemInit;
 import com.piratesee.crystalline.networking.ModMessages;
 import com.piratesee.crystalline.networking.packet.EnergySyncS2CPacket;
+import com.piratesee.crystalline.networking.packet.ItemStackSyncS2CPacket;
 import com.piratesee.crystalline.recipe.GemInjectingRecipe;
 import com.piratesee.crystalline.screen.GemInjectorMenu;
 import com.piratesee.crystalline.util.ModEnergyStorage;
@@ -64,10 +65,14 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
             }
 		};
 	}
-
+	
+	private int socketAccel = 100; //processing time decrease
+	private int socketTemp = 100; //uhhhh
+	private int socketShine = 100; //energy efficiency increase
+	
 	protected final ContainerData data;
 	private int progress = 0;
-	private int maxProgress = 128;
+	private int maxProgress = 128*(socketAccel/100);
 	
 	private final ModEnergyStorage ENERGY_STORAGE = new ModEnergyStorage(65536, 256) {
 		@Override
@@ -83,6 +88,9 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 		@Override
 		protected void onContentsChanged(int slot) {
 			setChanged();
+			if(!level.isClientSide()) {
+				ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
+			}
 		}
 	};
 	
@@ -159,8 +167,11 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 		
 		/*int[] socketStats = SocketGems.socketGemTester(pEntity.itemHandler.getStackInSlot(3));
 		System.out.print(socketStats[0]);
+		pEntity.socketAccel = socketStats[0];
 		System.out.print(socketStats[1]);
-		System.out.println(socketStats[2]);*/
+		pEntity.socketTemp = socketStats[1];
+		System.out.println(socketStats[2]);
+		pEntity.socketShine = socketStats[2];*/
 		
 		if(chargerItem(pEntity, 0)) {
 			pEntity.ENERGY_STORAGE.receiveEnergy(128, false);
@@ -181,12 +192,12 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	}
 
 	private static void extractEnergy(GemInjectorBlockEntity pEntity) {
-		pEntity.ENERGY_STORAGE.extractEnergy(ENERGY_REQ, false);
+		pEntity.ENERGY_STORAGE.extractEnergy(ENERGY_REQ*(pEntity.socketShine/100), false);
 		
 	}
 
 	private static boolean hasEnoughEnergy(GemInjectorBlockEntity pEntity) {
-		return pEntity.ENERGY_STORAGE.getEnergyStored() >= ENERGY_REQ * (pEntity.maxProgress-pEntity.progress);
+		return pEntity.ENERGY_STORAGE.getEnergyStored() >= (ENERGY_REQ*(pEntity.socketShine/100)) * (pEntity.maxProgress-pEntity.progress);
 	}
 
 	private static boolean chargerItem(GemInjectorBlockEntity pEntity, int slot) {
@@ -248,5 +259,15 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	public void setEnergyLevel(int energy) {
 		this.ENERGY_STORAGE.setEnergy(energy);
 	}
+
+	public ItemStack getRenderStack() {
+		return itemHandler.getStackInSlot(3);
+	}
+
+    public void setHandler(ItemStackHandler itemStackHandler) {
+        for (int i = 0; i < itemStackHandler.getSlots(); i++) {
+            itemHandler.setStackInSlot(i, itemStackHandler.getStackInSlot(i));
+        }
+    }
 
 }
