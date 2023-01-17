@@ -11,6 +11,7 @@ import com.piratesee.crystalline.screen.ModMenuTypes;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -40,6 +41,12 @@ public class Crystalline {
 		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
+	
+    public void addReloadListenerEvent(AddReloadListenerEvent event)
+    {
+        event.addListener(new SocketGems());
+        System.out.println("listener");
+    }
 	
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {

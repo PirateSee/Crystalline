@@ -13,6 +13,7 @@ import com.piratesee.crystalline.networking.packet.ItemStackSyncS2CPacket;
 import com.piratesee.crystalline.recipe.GemInjectingRecipe;
 import com.piratesee.crystalline.screen.GemInjectorMenu;
 import com.piratesee.crystalline.util.ModEnergyStorage;
+import com.piratesee.crystalline.util.SocketLoader;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,6 +27,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -47,6 +49,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
                 return switch (index) {
                     case 0 -> GemInjectorBlockEntity.this.progress;
                     case 1 -> GemInjectorBlockEntity.this.maxProgress;
+                    case 2 -> GemInjectorBlockEntity.this.craftedtrigger;
                     default -> 0;
                 };
             }
@@ -56,6 +59,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
                 switch (index) {
                     case 0 -> GemInjectorBlockEntity.this.progress = value;
                     case 1 -> GemInjectorBlockEntity.this.maxProgress = value;
+                    case 2 -> GemInjectorBlockEntity.this.craftedtrigger = value;
                 }
             }
 
@@ -73,6 +77,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 	protected final ContainerData data;
 	private int progress = 0;
 	private int maxProgress = 128*(socketAccel/100);
+	private int craftedtrigger = 4;
 	
 	private final ModEnergyStorage ENERGY_STORAGE = new ModEnergyStorage(65536, 256) {
 		@Override
@@ -161,9 +166,36 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
     }
 
 	public static void tick(Level level, BlockPos pos, BlockState state, GemInjectorBlockEntity pEntity) {
+		
 		if(level.isClientSide()) {
 			return;
 		}
+		
+		if(chargerItem(pEntity, 0)) {
+			pEntity.ENERGY_STORAGE.receiveEnergy(128, false);
+		}
+		
+		if(hasRecipe(pEntity) && hasEnoughEnergy(pEntity))  {
+			
+			pEntity.progress++;
+			extractEnergy(pEntity);
+			setChanged(level, pos, state);
+			
+			if(pEntity.progress >= pEntity.maxProgress) {
+				pEntity.craftedtrigger = 0;
+				craftItem(pEntity);
+			}
+		} else {
+			pEntity.resetProgress();
+			setChanged(level, pos, state);
+		}
+		
+		if (pEntity.craftedtrigger < 4) {
+			pEntity.craftedtrigger++;
+			setChanged(level, pos, state);
+		}
+		System.out.print(pEntity.craftedtrigger); System.out.println("(blockEntity)");
+
 		
 		/*int[] socketStats = SocketGems.socketGemTester(pEntity.itemHandler.getStackInSlot(3));
 		System.out.print(socketStats[0]);
@@ -172,23 +204,10 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
 		pEntity.socketTemp = socketStats[1];
 		System.out.println(socketStats[2]);
 		pEntity.socketShine = socketStats[2];*/
+				
+		int socketStats = SocketLoader.tester(pEntity.itemHandler.getStackInSlot(3), level);
 		
-		if(chargerItem(pEntity, 0)) {
-			pEntity.ENERGY_STORAGE.receiveEnergy(128, false);
-		}
-		
-		if(hasRecipe(pEntity) && hasEnoughEnergy(pEntity))  {
-			pEntity.progress++;
-			extractEnergy(pEntity);
-			setChanged(level, pos, state);
-			
-			if(pEntity.progress >= pEntity.maxProgress) {
-				craftItem(pEntity);
-			}
-		} else {
-			pEntity.resetProgress();
-			setChanged(level, pos, state);
-		}
+
 	}
 
 	private static void extractEnergy(GemInjectorBlockEntity pEntity) {
@@ -213,6 +232,7 @@ public class GemInjectorBlockEntity extends BlockEntity implements MenuProvider{
         SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
         for (int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
+            
         }
 
         Optional<GemInjectingRecipe> recipe = level.getRecipeManager()

@@ -38,10 +38,10 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 		addPlayerHotbar(inv);
 		
 		this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-			this.addSlot(new SlotItemHandler(handler, 0, 62, 16));
-			this.addSlot(new SlotItemHandler(handler, 1, 62, 58));
-			this.addSlot(new SlotItemHandler(handler, 2, 99, 37));
-			this.addSlot(new SlotItemHandler(handler, 3, 135, 13));
+			this.addSlot(new SlotItemHandler(handler, 0, 41, 37));
+			this.addSlot(new SlotItemHandler(handler, 1, 90, 37));
+			this.addSlot(new SlotItemHandler(handler, 2, 113, 37));
+			this.addSlot(new SlotItemHandler(handler, 3, 150, 5));
 		});
 
 		addDataSlots(data);
@@ -54,7 +54,7 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 	public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the height in pixels of your arrow
+        int progressArrowSize = 20; // This is the height in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
 	}
@@ -131,6 +131,10 @@ public class GemInjectorMenu extends AbstractContainerMenu {
 
 	public GemInjectorBlockEntity getBlockEntity() {
 		return this.blockEntity;
+	}
+	
+	public int getCraftAnimFrame() {
+		return data.get(2);
 	}
 	
 }

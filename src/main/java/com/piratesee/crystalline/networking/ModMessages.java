@@ -28,8 +28,6 @@ public class ModMessages {
         
         INSTANCE = net;
         
-        System.out.println(net);
-        
         net.messageBuilder(EnergySyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(EnergySyncS2CPacket::new)
                 .encoder(EnergySyncS2CPacket::toBytes)

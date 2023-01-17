@@ -19,6 +19,8 @@ public class GemInjectorScreen extends AbstractContainerScreen<GemInjectorMenu> 
 		super(menu, inv, component);
 	}
 
+	public int craftanim = 227;
+	
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(Crystalline.MOD_ID,"textures/gui/gem_injector_gui.png");
 	
@@ -33,7 +35,7 @@ public class GemInjectorScreen extends AbstractContainerScreen<GemInjectorMenu> 
 	private void assignEnergyInfoArea() {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
-		energyInfoArea = new EnergyInfoArea(x + 156, y +13, menu.blockEntity.getEnergyStorage());
+		energyInfoArea = new EnergyInfoArea(x + 152, y + 24, menu.blockEntity.getEnergyStorage());
 	}
 
 	@Override
@@ -45,7 +47,7 @@ public class GemInjectorScreen extends AbstractContainerScreen<GemInjectorMenu> 
 	}
 
 	private void renderEnergyAreaTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y) {
-	       if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 13, 8, 64)) {
+	       if(isMouseAboveArea(pMouseX, pMouseY, x, y, 156, 13, 12, 53)) {
 	            renderTooltip(pPoseStack, energyInfoArea.getTooltips(),
 	                    Optional.empty(), pMouseX - x, pMouseY - y);
 	       }
@@ -64,11 +66,17 @@ public class GemInjectorScreen extends AbstractContainerScreen<GemInjectorMenu> 
 
         renderProgressArrow(pPoseStack, x, y); 
         energyInfoArea.draw(pPoseStack);
+        
+        System.out.println(menu.getCraftAnimFrame());
+ 
+        if(menu.getCraftAnimFrame() >= 1 && menu.getCraftAnimFrame() < 3) {blit(pPoseStack, x + 113, y + 37, 176, 64, 17, 17);}
+        if(menu.getCraftAnimFrame() == 2) {blit(pPoseStack, x + 113, y + 37, 193, 64, 17, 17);}
+        if(menu.getCraftAnimFrame() == 3) {blit(pPoseStack, x + 113, y + 37, 210, 64, 17, 17);}
 	}
 	
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if(menu.isCrafting()) {
-            blit(pPoseStack, x + 82, y + 15, 176, 0, 8, menu.getScaledProgress());
+            blit(pPoseStack, x + 62, y + 40, 176, 0, menu.getScaledProgress(), 11);
         }
     }
 
